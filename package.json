@@ -1,0 +1,44 @@
+{
+  "name": "raf-throttle",
+  "version": "2.0.3",
+  "description": "Throttle a function by requestAnimationFrame",
+  "main": "lib/rafThrottle.js",
+  "scripts": {
+    "test": "NODE_ENV=test jest",
+    "coverage": "npm run test && codecov",
+    "clean": "rm -rf lib & rm -rf umd",
+    "build:minifiedUMD": "uglifyjs -o umd/rafThrottle.min.js umd/rafThrottle.js",
+    "build": "rollup -c && npm run build:minifiedUMD",
+    "prebuild": "npm run clean",
+    "prepublish": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wuct/raf-throttle.git"
+  },
+  "keywords": [
+    "raf",
+    "throttle",
+    "requestAnimationFrame"
+  ],
+  "author": "wuct",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wuct/raf-throttle/issues"
+  },
+  "homepage": "https://github.com/wuct/raf-throttle#readme",
+  "devDependencies": {
+    "babel-cli": "^6.7.5",
+    "babel-preset-env": "^1.7.0",
+    "codecov": "^3.0.0",
+    "jest": "^23.2.0",
+    "raf": "^3.2.0",
+    "rollup": "^0.64.0",
+    "rollup-plugin-babel": "^3.0.7",
+    "uglify-js": "^3.0.16"
+  },
+  "jest": {
+    "coverageDirectory": "./coverage/",
+    "collectCoverage": true
+  }
+}
